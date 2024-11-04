@@ -1,6 +1,14 @@
 # My-SQL---Consultorio
 Proyecto Base de Datos en My SQL Consultorio Medico
 
+# lo que pidio
+- Diagrama Relacional
+- Diagrama Entidad-Relacion
+• BD
+- llena tablas (50 datos)
+- Consultas
+- Vistas
+
 ## Problema:
 
 Nos han encargado que realizemos una base detos para un consultorio dentro de las tareas a solucionar son temas como:
@@ -23,3 +31,5 @@ Pacientes con Diagnósticos Recurrentes: Identifica a los pacientes que han reci
 
 Historial Completo de un Paciente Específico: Para brindar mejor atención, quieres ver el historial completo de un paciente en particular (por ejemplo, "Juan Pérez"), incluyendo su información personal, historial clínico, citas programadas, y consultas realizadas. 
 - Crear una consulta que presente toda esta información organizada de manera detallada.
+
+- 
