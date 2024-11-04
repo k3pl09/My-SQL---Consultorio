@@ -1,5 +1,5 @@
 CREATE DATABASE Consultorio;
-USE consultorio;
+USE Consultorio;
 
 -- Tabla de Pacientes
 CREATE TABLE pacientes (
