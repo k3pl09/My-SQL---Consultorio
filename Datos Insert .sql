@@ -164,7 +164,7 @@ INSERT INTO doctores (nombre, apellido, telefono, email) VALUES
 INSERT INTO citas (id_paciente, id_doctor, fecha_hora, motivo) VALUES 
 (1, 1, '2024-01-10 09:00:00', 'Chequeo general'),
 (2, 2, '2024-01-11 10:30:00', 'Control de diabetes'),
-(3, 3, '2024-01-12 11:00:00', 'Asma crónica'),
+(3, 3, '2024-01-12 11:00:00', 'Revisión por asma'),
 (4, 4, '2024-01-13 13:00:00', 'Evaluación de hipertensión'),
 (5, 5, '2024-01-14 09:30:00', 'Dolor de cabeza persistente'),
 (6, 6, '2024-01-15 15:00:00', 'Dolor abdominal'),
@@ -172,6 +172,16 @@ INSERT INTO citas (id_paciente, id_doctor, fecha_hora, motivo) VALUES
 (8, 8, '2024-01-17 10:00:00', 'Insomnio'),
 (9, 9, '2024-01-18 16:30:00', 'Colesterol alto'),
 (10, 10, '2024-01-19 11:30:00', 'Chequeo general'),
+(11, 11, '2024-01-20 10:00:00', 'Alergias estacionales'),
+(12, 12, '2024-01-21 13:00:00', 'Control de presión arterial'),
+(13, 13, '2024-01-22 15:30:00', 'Dolor de espalda'),
+(14, 14, '2024-01-23 09:00:00', 'Consulta de seguimiento'),
+(15, 15, '2024-01-24 11:00:00', 'Evaluación preoperatoria'),
+(16, 16, '2024-01-25 10:00:00', 'Control de peso'),
+(17, 17, '2024-01-26 14:30:00', 'Revisión por artritis'),
+(18, 18, '2024-01-27 08:30:00', 'Dolor en el pecho'),
+(19, 19, '2024-01-28 09:30:00', 'Revisión postoperatoria'),
+(20, 20, '2024-01-29 10:30:00', 'Chequeo general');
 
 --Consultas
 INSERT INTO consultas (id_paciente, id_doctor, fecha, diagnostico, tratamiento, observaciones) VALUES 
@@ -185,3 +195,14 @@ INSERT INTO consultas (id_paciente, id_doctor, fecha, diagnostico, tratamiento, 
 (8, 8, '2024-02-17', 'Insomnio', 'Melatonina', 'Evitar cafeína'),
 (9, 9, '2024-02-18', 'Colesterol alto', 'Atorvastatina', 'Revisión en tres meses'),
 (10, 10, '2024-02-19', 'Hipertensión', 'Lisinopril', 'Control mensual'),
+(11, 11, '2024-02-20', 'Alergias', 'Loratadina', 'Evitar exposición al polvo'),
+(12, 12, '2024-02-21', 'Dolor crónico', 'Gabapentina', 'Seguimiento cada 2 semanas'),
+(13, 13, '2024-02-22', 'Depresión', 'Sertralina', 'Revisión mensual'),
+(14, 14, '2024-02-23', 'Gastritis', 'Omeprazol', 'Dieta blanda recomendada'),
+(15, 15, '2024-02-24', 'Obesidad', 'Orlistat', 'Control de peso mensual'),
+(16, 16, '2024-02-25', 'Dolor lumbar', 'Paracetamol', 'Fisioterapia recomendada'),
+(17, 17, '2024-02-26', 'Anemia', 'Hierro', 'Control trimestral'),
+(18, 18, '2024-02-27', 'Hipotiroidismo', 'Levotiroxina', 'Ajuste de dosis según TSH'),
+(19, 19, '2024-02-28', 'Asma', 'Inhalador', 'Evitar actividad física intensa'),
+(20, 20, '2024-02-29', 'Ansiedad', 'Clonazepam', 'Terapia psicológica recomendada');
+
