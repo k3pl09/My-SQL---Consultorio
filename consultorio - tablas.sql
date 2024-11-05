@@ -30,18 +30,6 @@ CREATE TABLE historial_clinico (
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente) ON DELETE CASCADE
 );
 
-
--- Tabla de Citas
-CREATE TABLE citas (
-    id_cita INT PRIMARY KEY AUTO_INCREMENT,
-    id_paciente INT,
-    id_doctor INT,
-    fecha_hora DATETIME,
-    motivo VARCHAR(255),
-    FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente) ON DELETE SET NULL,
-    FOREIGN KEY (id_doctor) REFERENCES doctores(id_doctor) ON DELETE SET NULL
-);
-
 -- Tabla de Consultas
 CREATE TABLE consultas (
     id_consulta INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,4 +43,14 @@ CREATE TABLE consultas (
     FOREIGN KEY (id_doctor) REFERENCES doctores(id_doctor) ON DELETE SET NULL
 );
 
+-- Tabla de Citas
+CREATE TABLE citas (
+    id_cita INT PRIMARY KEY AUTO_INCREMENT,
+    id_paciente INT,
+    id_doctor INT,
+    fecha_hora DATETIME,
+    motivo VARCHAR(255),
+    FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente) ON DELETE SET NULL,
+    FOREIGN KEY (id_doctor) REFERENCES doctores(id_doctor) ON DELETE SET NULL
+);
 
