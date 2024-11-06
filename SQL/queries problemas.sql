@@ -25,6 +25,7 @@ GROUP BY p.id_paciente;
 
 SELECT * FROM vista_primera_consulta;
 
+
 -- PROBLEMA 4
 SELECT  nombre, apellido, fecha_nacimiento, 
 DATEDIFF(CURDATE(), fecha_nacimiento) / 365 AS "Edad",
@@ -35,6 +36,7 @@ DATEDIFF(CURDATE(), fecha_nacimiento) / 365 AS "Edad",
     END AS "Categoría de Edad"
 FROM 
     pacientes;
+
 
 -- PROBLEMA 5
 CREATE VIEW vista_edad_y_ultima_consulta AS
@@ -62,8 +64,8 @@ ORDER BY p.apellido, p.nombre;
 
 SELECT * FROM enfermedades_previas;
 
--- PROBLEMA 8
 
+-- PROBLEMA 8
 SELECT p.nombre ,p.apellido ,h.alergias,con.fecha "Fecha de Última Consulta",con.tratamiento "Tratamiento Prescrito"
 FROM pacientes p
 JOIN historial_clinico h ON p.id_paciente = h.id_paciente
@@ -71,6 +73,7 @@ JOIN consultas con ON p.id_paciente = con.id_paciente
 WHERE h.alergias IS NOT NULL
 ORDER BY con.fecha DESC
 LIMIT 20;
+
 
 -- PROBLEMA 9 
 CREATE VIEW vista_medicamentos_mas_comunes AS
@@ -84,7 +87,6 @@ SELECT * FROM vista_medicamentos_mas_comunes LIMIT 15;
 
 
 -- PROBLEMA 10
-
 SELECT p.nombre ,p.apellido,d.nombre,d.apellido ,COUNT(c.id_cita) AS "Total de Citas",MAX(c.fecha_hora) AS "Fecha de Última Cita",
 (SELECT c2.motivo FROM citas c2 WHERE c2.id_paciente = p.id_paciente ORDER BY c2.fecha_hora DESC LIMIT 1) AS "Motivo de Última Cita"
 FROM pacientes p

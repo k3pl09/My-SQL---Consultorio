@@ -1,5 +1,8 @@
+
 CREATE DATABASE Consultorio;
+
 USE Consultorio;
+
 
 -- Tabla de Pacientes
 CREATE TABLE pacientes (
@@ -11,6 +14,7 @@ CREATE TABLE pacientes (
     direccion VARCHAR(255)
 );
 
+
 -- Tabla de Doctores
 CREATE TABLE doctores (
     id_doctor INT PRIMARY KEY AUTO_INCREMENT,
@@ -19,6 +23,7 @@ CREATE TABLE doctores (
     telefono VARCHAR(15),
     email VARCHAR(100) UNIQUE
 );
+
 
 -- Tabla de Historial Clínico
 CREATE TABLE historial_clinico (
@@ -29,6 +34,7 @@ CREATE TABLE historial_clinico (
     medicamentos_habituales VARCHAR(100),
     FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente) ON DELETE CASCADE
 );
+
 
 -- Tabla de Consultas
 CREATE TABLE consultas (
@@ -43,6 +49,7 @@ CREATE TABLE consultas (
     FOREIGN KEY (id_doctor) REFERENCES doctores(id_doctor) ON DELETE SET NULL
 );
 
+
 -- Tabla de Citas
 CREATE TABLE citas (
     id_cita INT PRIMARY KEY AUTO_INCREMENT,
@@ -54,3 +61,271 @@ CREATE TABLE citas (
     FOREIGN KEY (id_doctor) REFERENCES doctores(id_doctor) ON DELETE SET NULL
 );
 
+
+-- Pacientes
+INSERT INTO pacientes (nombre, apellido, fecha_nacimiento, telefono, direccion) VALUES 
+('Juan', 'Pérez', '1980-05-15', '1234567890', 'Calle Falsa 123'),
+('Ana', 'Gómez', '1992-07-10', '2345678901', 'Av. Siempre Viva 742'),
+('Carlos', 'López', '1985-08-20', '3456789012', 'Calle Verde 55'),
+('Lucía', 'Martínez', '1979-04-12', '4567890123', 'Calle Azul 98'),
+('Pedro', 'Jiménez', '1993-09-23', '5678901234', 'Av. Central 45'),
+('Elena', 'Ramos', '1989-03-17', '6789012345', 'Calle Norte 21'),
+('José', 'Díaz', '1975-12-30', '7890123456', 'Calle Sur 32'),
+('Sandra', 'Hernández', '1982-11-22', '8901234567', 'Av. Independencia 67'),
+('Roberto', 'Ortega', '1990-02-01', '9012345678', 'Calle Libertad 89'),
+('María', 'González', '1995-07-15', '1234509876', 'Calle Los Olivos 10'),
+('Andrea', 'Mendoza', '1988-06-25', '2345609875', 'Calle Las Flores 21'),
+('Javier', 'Vega', '1991-08-03', '3456709874', 'Av. Sol 14'),
+('Isabel', 'Rivera', '1983-05-10', '4567809873', 'Calle Mar 12'),
+('Miguel', 'Salas', '1978-09-17', '5678909872', 'Av. Norte 87'),
+('Rosa', 'Flores', '1997-10-30', '6789009871', 'Calle Palma 16'),
+('David', 'Santos', '1986-03-21', '7890129870', 'Av. Paz 33'),
+('Carmen', 'Lara', '1994-11-08', '8901239879', 'Calle Pino 78'),
+('Raúl', 'Peña', '1990-04-04', '9012349878', 'Calle Roble 54'),
+('Valeria', 'Muñoz', '1996-12-11', '0123459876', 'Av. Reforma 40'),
+('Manuel', 'Romero', '1981-01-23', '1234567875', 'Calle Palmera 19'),
+('Cecilia', 'Castro', '1992-07-09', '2345677874', 'Av. Olivo 25'),
+('Alejandro', 'Ríos', '1985-02-28', '3456787873', 'Calle Azul 45'),
+('Patricia', 'Silva', '1987-10-05', '4567897872', 'Av. Sol 13'),
+('Enrique', 'Miranda', '1983-11-14', '5678907871', 'Calle Rio 37'),
+('Beatriz', 'Roldán', '1991-09-30', '6789017870', 'Av. Reforma 60'),
+('Esteban', 'Montoya', '1998-02-20', '7890127879', 'Calle Estrella 23'),
+('Laura', 'Arce', '1976-04-12', '8901237878', 'Av. Mares 52'),
+('Mónica', 'Paredes', '1984-06-01', '9012347877', 'Calle Luna 18'),
+('Luis', 'Morales', '1992-12-16', '0123457876', 'Av. Norte 99'),
+('Clara', 'Navarro', '1990-08-14', '1234569875', 'Calle Alondra 48'),
+('Alfredo', 'Escobar', '1993-07-17', '2345679874', 'Av. Golondrinas 71'),
+('Silvia', 'Ramos', '1979-03-22', '3456789873', 'Calle Palmeras 60'),
+('Felipe', 'Villalobos', '1988-01-30', '4567899872', 'Av. Ciprés 39'),
+('Paula', 'Castañeda', '1982-10-09', '5678909871', 'Calle Magnolia 75'),
+('Héctor', 'Sánchez', '1989-05-05', '6789019870', 'Av. Cedro 17'),
+('Elisa', 'Garrido', '1978-12-15', '7890129879', 'Calle Robles 27'),
+('Diana', 'Ávila', '1991-09-19', '8901239878', 'Calle Maples 36'),
+('Marco', 'Benítez', '1983-06-24', '9012349877', 'Av. Fresno 88'),
+('Nora', 'Villarreal', '1985-11-13', '0123459876', 'Calle Sauces 51'),
+('Emilio', 'Cardenas', '1986-04-10', '1234567875', 'Av. Perla 68'),
+('Carolina', 'Carrillo', '1977-02-05', '2345677874', 'Calle Rosa 19'),
+('Oscar', 'León', '1994-01-15', '3456787873', 'Calle Azul 85'),
+('Liliana', 'Mora', '1990-03-03', '4567897872', 'Av. Verde 93'),
+('Guillermo', 'Paz', '1981-09-20', '5678907871', 'Calle Esmeralda 49'),
+('Lorena', 'Valdez', '1987-08-17', '6789017870', 'Av. Laurel 23'),
+('Francisco', 'Ibarra', '1997-05-09', '7890127879', 'Calle Jazmín 65'),
+('Fabiola', 'Méndez', '1983-07-21', '8901237878', 'Av. Ciprés 42'),
+('Tomás', 'Peralta', '1980-10-01', '9012347877', 'Calle Oro 56'),
+('Nina', 'Valle', '1991-01-12', '0123457876', 'Av. Topacio 38'),
+('Ramón', 'Vázquez', '1984-04-29', '1234569875', 'Calle Cristal 77');
+
+
+-- Doctores
+INSERT INTO doctores (nombre, apellido, telefono, email) VALUES 
+('Carlos', 'González', '1234567890', 'carlos.gonzalez@hospital.com'),
+('Ana', 'López', '2345678901', 'ana.lopez@hospital.com'),
+('Luis', 'Martínez', '3456789012', 'luis.martinez@hospital.com'),
+('María', 'Rodríguez', '4567890123', 'maria.rodriguez@hospital.com'),
+('José', 'Fernández', '5678901234', 'jose.fernandez@hospital.com'),
+('Elena', 'Pérez', '6789012345', 'elena.perez@hospital.com'),
+('Javier', 'García', '7890123456', 'javier.garcia@hospital.com'),
+('Lucía', 'Romero', '8901234567', 'lucia.romero@hospital.com'),
+('Santiago', 'Hernández', '9012345678', 'santiago.hernandez@hospital.com'),
+('Valeria', 'Mendoza', '0123456789', 'valeria.mendoza@hospital.com'),
+('Raúl', 'Morales', '1234567899', 'raul.morales@hospital.com'),
+('Carla', 'Ríos', '2345678909', 'carla.rios@hospital.com'),
+('Pedro', 'Ortega', '3456789019', 'pedro.ortega@hospital.com'),
+('Sofía', 'Vega', '4567890129', 'sofia.vega@hospital.com'),
+('Fernando', 'Salas', '5678901239', 'fernando.salas@hospital.com'),
+('Mónica', 'Santos', '6789012349', 'monica.santos@hospital.com'),
+('Diego', 'Navarro', '7890123459', 'diego.navarro@hospital.com'),
+('Carmen', 'Lara', '8901234569', 'carmen.lara@hospital.com'),
+('Roberto', 'Silva', '9012345679', 'roberto.silva@hospital.com'),
+('Patricia', 'Cruz', '0123456781', 'patricia.cruz@hospital.com'),
+('Esteban', 'León', '1234567892', 'esteban.leon@hospital.com'),
+('Inés', 'Muñoz', '2345678902', 'ines.munoz@hospital.com'),
+('Mario', 'Valdez', '3456789012', 'mario.valdez@hospital.com'),
+('Carolina', 'Sánchez', '4567890122', 'carolina.sanchez@hospital.com'),
+('Antonio', 'Mora', '5678901232', 'antonio.mora@hospital.com'),
+('Laura', 'Ruiz', '6789012342', 'laura.ruiz@hospital.com'),
+('Ignacio', 'Fuentes', '7890123452', 'ignacio.fuentes@hospital.com'),
+('Cecilia', 'Álvarez', '8901234562', 'cecilia.alvarez@hospital.com'),
+('Ramón', 'Castro', '9012345672', 'ramon.castro@hospital.com'),
+('Beatriz', 'Guzmán', '0123456783', 'beatriz.guzman@hospital.com'),
+('Enrique', 'Rojas', '1234567894', 'enrique.rojas@hospital.com'),
+('Alejandra', 'Luna', '2345678904', 'alejandra.luna@hospital.com'),
+('Daniel', 'Guerra', '3456789014', 'daniel.guerra@hospital.com'),
+('Victoria', 'Reyes', '4567890124', 'victoria.reyes@hospital.com'),
+('Andrés', 'Campos', '5678901234', 'andres.campos@hospital.com'),
+('Natalia', 'Vargas', '6789012344', 'natalia.vargas@hospital.com'),
+('Gabriel', 'Aguilar', '7890123454', 'gabriel.aguilar@hospital.com'),
+('Rosa', 'Martínez', '8901234564', 'rosa.martinez@hospital.com'),
+('Héctor', 'Sosa', '9012345674', 'hector.sosa@hospital.com'),
+('Isabel', 'Ponce', '0123456785', 'isabel.ponce@hospital.com'),
+('Manuel', 'Medina', '1234567895', 'manuel.medina@hospital.com'),
+('Cristina', 'Nieves', '2345678905', 'cristina.nieves@hospital.com'),
+('Gustavo', 'Campos', '3456789015', 'gustavo.campos@hospital.com'),
+('Sara', 'Quintero', '4567890125', 'sara.quintero@hospital.com'),
+('Oscar', 'Robles', '5678901235', 'oscar.robles@hospital.com'),
+('Mariana', 'Ledesma', '6789012345', 'mariana.ledesma@hospital.com'),
+('Jesús', 'Herrera', '7890123455', 'jesus.herrera@hospital.com'),
+('Daniela', 'Olivares', '8901234565', 'daniela.olivares@hospital.com'),
+('Hugo', 'Montes', '9012345675', 'hugo.montes@hospital.com');
+
+
+-- Historial Clinico
+INSERT INTO historial_clinico (id_paciente, enfermedades_previas, alergias, medicamentos_habituales) VALUES 
+(1, 'Hipertensión', 'Penicilina', 'Atenolol'),
+(2, 'Diabetes', 'Ibuprofeno', 'Insulina'),
+(3, 'Asma', 'Polen', 'Salbutamol'),
+(4, 'Hipotiroidismo', 'Látex', 'Levotiroxina'),
+(5, 'Migrañas', 'Ninguna', 'Ibuprofeno'),
+(6, 'Alergia alimentaria', 'Mariscos', 'Antihistamínicos'),
+(7, 'Artritis', 'Ninguna', 'Diclofenaco'),
+(8, 'Insomnio', 'Ninguna', 'Melatonina'),
+(9, 'Colesterol alto', 'Ninguna', 'Atorvastatina'),
+(10, 'Asma', 'Polen', 'Salbutamol'),
+(11, 'Diabetes tipo 1', 'Penicilina', 'Insulina'),
+(12, 'Anemia', 'Ninguna', 'Hierro'),
+(13, 'Gastritis', 'Aspirina', 'Omeprazol'),
+(14, 'Depresión', 'Ninguna', 'Sertralina'),
+(15, 'Ansiedad', 'Ninguna', 'Clonazepam'),
+(16, 'Obesidad', 'Ninguna', 'Orlistat'),
+(17, 'Alergia a medicamentos', 'Aspirina', 'Paracetamol'),
+(18, 'Insuficiencia renal', 'Ninguna', 'Diuréticos'),
+(19, 'Hipertensión', 'Ninguna', 'Atenolol'),
+(20, 'Alergia estacional', 'Polen', 'Antihistamínicos'),
+(21, 'Diabetes tipo 2', 'Ninguna', 'Metformina'),
+(22, 'Gastritis', 'Lactosa', 'Antiácidos'),
+(23, 'Hipotiroidismo', 'Ninguna', 'Levotiroxina'),
+(24, 'Dolor crónico', 'Ninguna', 'Gabapentina'),
+(25, 'Artritis', 'Ninguna', 'Ibuprofeno'),
+(26, 'Asma', 'Polen', 'Inhalador'),
+(27, 'Alergia al polvo', 'Polvo', 'Antihistamínicos'),
+(28, 'Migrañas', 'Ninguna', 'Sumatriptán'),
+(29, 'Anemia', 'Ninguna', 'Hierro'),
+(30, 'Hipertensión', 'Penicilina', 'Lisinopril'),
+(31, 'Alergia a alimentos', 'Mariscos', 'Epinefrina'),
+(32, 'Insomnio', 'Ninguna', 'Melatonina'),
+(33, 'Colesterol alto', 'Ninguna', 'Estatinas'),
+(34, 'Ansiedad', 'Ninguna', 'Alprazolam'),
+(35, 'Diabetes tipo 1', 'Ibuprofeno', 'Insulina'),
+(36, 'Hipotiroidismo', 'Ninguna', 'Levotiroxina'),
+(37, 'Obesidad', 'Ninguna', 'Orlistat'),
+(38, 'Alergia a medicamentos', 'Antibióticos', 'Antihistamínicos'),
+(39, 'Insuficiencia renal', 'Ninguna', 'Diuréticos'),
+(40, 'Asma', 'Pelo de animal', 'Broncodilatador'),
+(41, 'Gastritis', 'Picante', 'Omeprazol'),
+(42, 'Hipertensión', 'Ninguna', 'Captopril'),
+(43, 'Depresión', 'Ninguna', 'Fluoxetina'),
+(44, 'Alergia estacional', 'Polen', 'Loratadina'),
+(45, 'Dolor crónico', 'Ninguna', 'Gabapentina'),
+(46, 'Artritis reumatoide', 'Ninguna', 'Metotrexato'),
+(47, 'Alergia a insectos', 'Picaduras', 'Antihistamínicos'),
+(48, 'Hipertensión', 'Ninguna', 'Losartán'),
+(49, 'Colesterol alto', 'Ninguna', 'Atorvastatina'),
+(50, 'Ansiedad', 'Ninguna', 'Lorazepam');
+
+
+--Consultas
+INSERT INTO consultas (id_paciente, id_doctor, fecha, diagnostico, tratamiento, observaciones) VALUES 
+(1, 1, '2024-02-10', 'Hipertensión', 'Atenolol', 'Revisar cada mes'),
+(2, 2, '2024-02-11', 'Diabetes', 'Insulina', 'Control de azúcar cada semana'),
+(3, 3, '2024-02-12', 'Asma', 'Salbutamol', 'Evitar alergenos'),
+(4, 4, '2024-02-13', 'Migraña', 'Ibuprofeno', 'Evitar estrés'),
+(5, 5, '2024-02-14', 'Hipotiroidismo', 'Levotiroxina', 'Revisión trimestral'),
+(6, 6, '2024-02-15', 'Alergia', 'Antihistamínicos', 'Evitar mariscos'),
+(7, 7, '2024-02-16', 'Artritis', 'Diclofenaco', 'Control de dolor'),
+(8, 8, '2024-02-17', 'Insomnio', 'Melatonina', 'Evitar cafeína'),
+(9, 9, '2024-02-18', 'Colesterol alto', 'Atorvastatina', 'Revisión en tres meses'),
+(10, 10, '2024-02-19', 'Hipertensión', 'Lisinopril', 'Control mensual'),
+(11, 11, '2024-02-20', 'Alergias', 'Loratadina', 'Evitar exposición al polvo'),
+(12, 12, '2024-02-21', 'Dolor crónico', 'Gabapentina', 'Seguimiento cada 2 semanas'),
+(13, 13, '2024-02-22', 'Depresión', 'Sertralina', 'Revisión mensual'),
+(14, 14, '2024-02-23', 'Gastritis', 'Omeprazol', 'Dieta blanda recomendada'),
+(15, 15, '2024-02-24', 'Obesidad', 'Orlistat', 'Control de peso mensual'),
+(16, 16, '2024-02-25', 'Dolor lumbar', 'Paracetamol', 'Fisioterapia recomendada'),
+(17, 17, '2024-02-26', 'Anemia', 'Hierro', 'Control trimestral'),
+(18, 18, '2024-02-27', 'Hipotiroidismo', 'Levotiroxina', 'Ajuste de dosis según TSH'),
+(19, 19, '2024-02-28', 'Asma', 'Inhalador', 'Evitar actividad física intensa'),
+(20, 20, '2024-02-29', 'Ansiedad', 'Clonazepam', 'Terapia psicológica recomendada'),
+(21, 1, '2024-03-01', 'Cefalea', 'Paracetamol', 'Control mensual'),
+(22, 2, '2024-03-02', 'Hipertensión', 'Amlodipino', 'Revisar cada mes'),
+(23, 3, '2024-03-03', 'Alergias', 'Desloratadina', 'Evitar polen'),
+(24, 4, '2024-03-04', 'Diabetes tipo 2', 'Metformina', 'Control de dieta'),
+(25, 5, '2024-03-05', 'Colitis', 'Mesalazina', 'Control de síntomas'),
+(26, 6, '2024-03-06', 'Depresión', 'Fluoxetina', 'Seguimiento quincenal'),
+(27, 7, '2024-03-07', 'Esguince', 'Reposo', 'Fisioterapia recomendada'),
+(28, 8, '2024-03-08', 'Hiperlipidemia', 'Simvastatina', 'Revisión cada 3 meses'),
+(29, 9, '2024-03-09', 'Insomnio', 'Zolpidem', 'Evitar estrés'),
+(30, 10, '2024-03-10', 'Dolor de espalda', 'Naproxeno', 'Fisioterapia'),
+(31, 11, '2024-03-11', 'Hernia', 'Cirugía programada', 'Control en 6 meses'),
+(32, 12, '2024-03-12', 'Tendinitis', 'Antiinflamatorios', 'Fisioterapia semanal'),
+(33, 13, '2024-03-13', 'Neumonía', 'Antibióticos', 'Seguimiento semanal'),
+(34, 14, '2024-03-14', 'Artritis reumatoide', 'Metotrexato', 'Revisión mensual'),
+(35, 15, '2024-03-15', 'Eczema', 'Cremas tópicas', 'Control mensual'),
+(36, 16, '2024-03-16', 'Fibromialgia', 'Antidepresivos', 'Terapia psicológica'),
+(37, 17, '2024-03-17', 'Migrañas', 'Triptanes', 'Control mensual'),
+(38, 18, '2024-03-18', 'Acidez', 'Antiacidos', 'Dieta recomendada'),
+(39, 19, '2024-03-19', 'Infección urinaria', 'Antibióticos', 'Revisión en 5 días'),
+(40, 20, '2024-03-20', 'Cálculos renales', 'Litotricia', 'Seguimiento mensual'),
+(41, 1, '2024-03-21', 'Artritis', 'Antiinflamatorios', 'Control de dolor'),
+(42, 2, '2024-03-22', 'Hipertensión', 'Losartán', 'Control cada 2 meses'),
+(43, 3, '2024-03-23', 'Colesterol alto', 'Ezetimibe', 'Revisar dieta'),
+(44, 4, '2024-03-24', 'Deshidratación', 'Suero oral', 'Control semanal'),
+(45, 5, '2024-03-25', 'Dificultades respiratorias', 'Broncodilatadores', 'Revisión en 10 días'),
+(46, 6, '2024-03-26', 'Páncreas', 'Dieta baja en grasas', 'Control mensual'),
+(47, 7, '2024-03-27', 'Esguince', 'Inmovilización', 'Control en 1 semana'),
+(48, 8, '2024-03-28', 'Fractura', 'Fisioterapia', 'Control en 2 meses'),
+(49, 9, '2024-03-29', 'Problemas de visión', 'Examen oftalmológico', 'Control en 6 meses'),
+(50, 10, '2024-03-30', 'Estrés', 'Terapia', 'Seguimiento mensual');
+
+
+--Citas
+INSERT INTO citas (id_paciente, id_doctor, fecha_hora, motivo) VALUES 
+(1, 1, '2024-01-10 09:00:00', 'Chequeo general'),
+(2, 2, '2024-01-11 10:30:00', 'Control de diabetes'),
+(3, 3, '2024-01-12 11:00:00', 'Revisión por asma'),
+(4, 4, '2024-01-13 13:00:00', 'Evaluación de hipertensión'),
+(5, 5, '2024-01-14 09:30:00', 'Dolor de cabeza persistente'),
+(6, 6, '2024-01-15 15:00:00', 'Dolor abdominal'),
+(7, 7, '2024-01-16 14:00:00', 'Consulta rutinaria'),
+(8, 8, '2024-01-17 10:00:00', 'Insomnio'),
+(9, 9, '2024-01-18 16:30:00', 'Colesterol alto'),
+(10, 10, '2024-01-19 11:30:00', 'Chequeo general'),
+(11, 11, '2024-01-20 10:00:00', 'Alergias estacionales'),
+(12, 12, '2024-01-21 13:00:00', 'Control de presión arterial'),
+(13, 13, '2024-01-22 15:30:00', 'Dolor de espalda'),
+(14, 14, '2024-01-23 09:00:00', 'Consulta de seguimiento'),
+(15, 15, '2024-01-24 11:00:00', 'Evaluación preoperatoria'),
+(16, 16, '2024-01-25 10:00:00', 'Control de peso'),
+(17, 17, '2024-01-26 14:30:00', 'Revisión por artritis'),
+(18, 18, '2024-01-27 08:30:00', 'Dolor en el pecho'),
+(19, 19, '2024-01-28 09:30:00', 'Revisión postoperatoria'),
+(20, 20, '2024-01-29 10:30:00', 'Chequeo general'),
+(1, 3, '2024-02-01 09:00:00', 'Chequeo cardíaco'),
+(2, 4, '2024-02-02 14:00:00', 'Revisión de colesterol'),
+(3, 5, '2024-02-03 11:00:00', 'Consulta por dolor en articulaciones'),
+(4, 6, '2024-02-04 12:00:00', 'Chequeo dental'),
+(5, 7, '2024-02-05 10:00:00', 'Control de presión arterial'),
+(6, 8, '2024-02-06 11:00:00', 'Evaluación preoperatoria'),
+(7, 9, '2024-02-07 13:00:00', 'Dolor en rodilla'),
+(8, 10, '2024-02-08 16:00:00', 'Evaluación postoperatoria'),
+(9, 1, '2024-02-09 09:00:00', 'Chequeo general'),
+(10, 2, '2024-02-10 11:00:00', 'Dolor en el pecho'),
+(11, 3, '2024-02-11 14:30:00', 'Consulta de seguimiento'),
+(12, 4, '2024-02-12 08:30:00', 'Chequeo visual'),
+(13, 5, '2024-02-13 12:00:00', 'Examen de rutina'),
+(14, 6, '2024-02-14 10:00:00', 'Evaluación de tiroides'),
+(15, 7, '2024-02-15 15:00:00', 'Consulta de colesterol'),
+(16, 8, '2024-02-16 09:00:00', 'Control de peso'),
+(17, 9, '2024-02-17 11:30:00', 'Examen de sangre'),
+(18, 10, '2024-02-18 10:30:00', 'Chequeo general'),
+(19, 1, '2024-02-19 09:00:00', 'Consulta por hipertensión'),
+(20, 2, '2024-02-20 11:00:00', 'Evaluación general'),
+(21, 3, '2024-02-21 13:00:00', 'Revisión por gastritis'),
+(22, 4, '2024-02-22 10:30:00', 'Examen postoperatorio'),
+(23, 5, '2024-02-23 08:30:00', 'Evaluación pulmonar'),
+(24, 6, '2024-02-24 12:00:00', 'Consulta por dolor crónico'),
+(25, 7, '2024-02-25 11:00:00', 'Revisión de azúcar en sangre'),
+(26, 8, '2024-02-26 15:30:00', 'Chequeo dental'),
+(27, 9, '2024-02-27 10:00:00', 'Evaluación por pérdida de peso'),
+(28, 10, '2024-02-28 09:30:00', 'Consulta de seguimiento'),
+(29, 1, '2024-02-29 08:00:00', 'Chequeo general'),
+(30, 2, '2024-03-01 10:00:00', 'Consulta de estrés');
