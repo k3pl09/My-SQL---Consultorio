@@ -94,10 +94,3 @@ JOIN citas c ON p.id_paciente = c.id_paciente
 JOIN doctores d ON c.id_doctor = d.id_doctor
 GROUP BY p.id_paciente, d.id_doctor
 ORDER BY p.apellido, p.nombre;
-
-
-
-
-
-
-
